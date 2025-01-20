@@ -26,19 +26,6 @@ class TaskController extends Controller
         return response()->json($tasks);
     }
 
-    public function determinePriority($title, $description)
-    {
-        $text = strtolower($title . ' ' . $description);
-
-        if (str_contains($text, ['urgent', 'asap', 'immediate'])) {
-            return 'High';
-        } elseif (str_contains($text, ['soon', 'important', 'tomorrow'])) {
-            return 'Medium';
-        } else {
-            return 'Low';
-        }
-    }
-
     public function addTask(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -52,16 +39,14 @@ class TaskController extends Controller
         }
 
         $data = $request->all();
-        $finalPriority = $data['priority'] === 'Let AI Decide'
-            ? $this->determinePriority($data['title'], $data['description'])
-            : $data['priority'];
 
         $task = Task::create([
             'user_id' => $data['user_id'],
             'title' => $data['title'],
             'description' => $data['description'],
+            'start_date'=>$data['start_date'],
             'due_date' => $data['due_date'],
-            'priority' => $finalPriority,
+            'priority' => $data['priority'],
             'status' => $data['status'] ?? 'Incomplete',
         ]);
 

@@ -19,6 +19,7 @@ class Task extends Model
         'user_id',
         'title',
         'description',
+        'start_date',
         'due_date',
         'priority',
         'status',
@@ -41,6 +42,7 @@ class Task extends Model
      */
     protected $casts = [
         'due_date' => 'datetime',
+        'start_date' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
