@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1c23;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.task-types {
+    display: flex;
+    gap: 12px;
+}
+
+.type-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.type-task { background-color: #e53e3e; }
+.type-story { background-color: #ecc94b; }
+.type-bug { background-color: #48bb78; }
+
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.new-task-btn {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 0 20px;
+}
+
+.column {
+    background-color: #2d3748;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.column-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.menu-btn {
+    color: #a0aec0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-card {
+    background-color: #4a5568;
+    border-radius: 6px;
+    padding: 12px;
+    cursor: move;
+}
+
+.task-card:hover {
+    background-color: #2d3748;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.task-title {
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.task-link {
+    color: #a0aec0;
+    cursor: pointer;
+}
+
+.task-desc {
+    font-size: 14px;
+    color: #a0aec0;
+    line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+    .board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.side-menu {
+    float: left;
+    border: 1px solid #ccc;
+    color:#1a1c23;
+    background-color: white;
+    width: 150px;
+    height: 100vh; /* Fills the viewport height */
+  }
